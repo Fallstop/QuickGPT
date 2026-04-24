@@ -1,5 +1,7 @@
-const MODEL = 'nvidia/nemotron-3-nano-30b-a3b:free';
-const UPSTREAM_URL = 'https://speedy-gpt.jmw.nz/v1/chat/completions';
+// Proxy enforces the model server-side via its MODEL env var; this placeholder
+// is only here because OpenAI's API schema requires a `model` field.
+const UPSTREAM_URL = 'https://speedy-gpt.jmw.nz/api/v1/chat/completions';
+const MODEL_PLACEHOLDER = 'auto';
 
 chrome.runtime.onConnect.addListener((port) => {
   if (port.name !== 'quickgpt:upstream') return;
@@ -21,7 +23,7 @@ chrome.runtime.onConnect.addListener((port) => {
           accept: 'text/event-stream',
         },
         body: JSON.stringify({
-          model: MODEL,
+          model: MODEL_PLACEHOLDER,
           messages: msg.messages ?? [],
           stream: true,
         }),
@@ -47,7 +49,14 @@ chrome.runtime.onConnect.addListener((port) => {
 
       const processLine = (rawLine) => {
         const line = rawLine.trim();
-        if (!line || !line.startsWith('data:')) return true;
+        if (!line) return true;
+        if (!line.startsWith('data:')) {
+          // SSE comment / keepalive (e.g. ": OPENROUTER PROCESSING"). Post a
+          // heartbeat to keep Chrome's MV3 service worker alive during long
+          // thinking pauses — port activity resets the idle timer.
+          safePost(port, { type: 'heartbeat' });
+          return true;
+        }
         const payload = line.slice(5).trim();
         if (payload === '[DONE]') {
           doneSeen = true;

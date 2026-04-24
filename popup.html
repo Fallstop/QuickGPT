@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>quickGPT</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="brand" aria-label="quickGPT">
+        <svg class="mark" width="32" height="32" viewBox="0 0 56 56" fill="none" aria-hidden="true">
+          <rect width="56" height="56" rx="12" fill="#0b0a10" />
+          <path d="M14 18 L22 28 L14 38" stroke="#c4b5fd" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.55" />
+          <path d="M23 18 L31 28 L23 38" stroke="#d6ccff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.85" />
+          <path d="M32 18 L40 28 L32 38" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <span class="wordmark"><span class="q">quick</span><span class="accent">GPT</span></span>
+      </header>
+
+      <button id="toggle" class="switch is-on" type="button" role="switch" aria-checked="true" aria-label="Enable quickGPT">
+        <span class="switch-label switch-label-off">OFF</span>
+        <span class="switch-thumb">
+          <span class="thumb-dot"></span>
+        </span>
+        <span class="switch-label switch-label-on">ON</span>
+        <span class="switch-glow" aria-hidden="true"></span>
+      </button>
+
+      <div class="status">
+        <span class="status-dot"></span>
+        <span id="status-text">Enabled · quickGPT</span>
+      </div>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>

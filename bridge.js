@@ -1,6 +1,21 @@
 (() => {
   const ports = new Map();
 
+  const pushEnabled = (enabled) => {
+    window.dispatchEvent(
+      new CustomEvent('quickgpt:enabled', {
+        detail: { enabled: enabled !== false },
+      }),
+    );
+  };
+
+  chrome.storage.local.get(['enabled'], ({ enabled }) => pushEnabled(enabled));
+  chrome.storage.onChanged.addListener((changes, area) => {
+    if (area === 'local' && 'enabled' in changes) {
+      pushEnabled(changes.enabled.newValue);
+    }
+  });
+
   window.addEventListener('quickgpt:request', (e) => {
     const { reqId, messages } = e.detail ?? {};
     if (!reqId) return;
@@ -10,6 +25,11 @@
 
     port.onMessage.addListener((msg) => {
       dispatch(reqId, msg);
+      // Background signalled terminal state explicitly; drop the entry now so
+      // the onDisconnect handler below doesn't emit a duplicate 'done'.
+      if (msg?.type === 'done' || msg?.type === 'error') {
+        ports.delete(reqId);
+      }
     });
     port.onDisconnect.addListener(() => {
       if (ports.has(reqId)) {

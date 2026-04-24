@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>quickGPT — Chrome Web Store hero (1280×800)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #212121;
+    --bubble: #303030;
+    --composer: #2a2a2a;
+    --txt: #ececec;
+    --placeholder: #9a9a9a;
+    --violet: #8b5cf6;
+    --violet-light: #c4b5fd;
+    --violet-deep: #6d28d9;
+    --font: 'Söhne', 'Geist', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+  html, body { margin: 0; padding: 0; background: #0b0a10; }
+  body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    box-sizing: border-box;
+  }
+  @keyframes qgpt-blink { 50% { opacity: 0; } }
+
+  .hero {
+    width: 1280px;
+    height: 800px;
+    background: var(--bg);
+    color: var(--txt);
+    font-family: var(--font);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 60px 70px 28px;
+    box-sizing: border-box;
+  }
+
+  .prompt-row {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 48px;
+  }
+  .prompt-bubble {
+    max-width: 86%;
+    background: var(--bubble);
+    color: var(--txt);
+    padding: 20px 32px;
+    border-radius: 32px;
+    font-size: 36px;
+    line-height: 1.3;
+    font-weight: 400;
+  }
+
+  .reply {
+    font-size: 36px;
+    line-height: 1.5;
+    color: var(--txt);
+    font-weight: 400;
+    letter-spacing: -0.005em;
+  }
+  .reply-cursor {
+    display: inline-block;
+    width: 18px;
+    height: 36px;
+    background: var(--txt);
+    vertical-align: -7px;
+    margin-left: 6px;
+    animation: qgpt-blink 1s steps(1) infinite;
+  }
+
+  .spacer { flex: 1; }
+
+  .composer {
+    background: var(--composer);
+    border-radius: 999px;
+    padding: 18px 18px 18px 28px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+  .composer .icon-btn {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--txt);
+    flex-shrink: 0;
+  }
+  .composer .icon-btn.lg { width: 40px; height: 40px; }
+  .composer .placeholder {
+    flex: 1;
+    color: var(--placeholder);
+    font-size: 26px;
+  }
+
+  .qpill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 16px;
+    background: linear-gradient(180deg, rgba(139, 92, 246, 0.28), rgba(139, 92, 246, 0.10));
+    border: 1px solid rgba(139, 92, 246, 0.55);
+    border-radius: 999px;
+    font-family: var(--mono);
+    font-size: 16px;
+    color: #f2ecff;
+    box-shadow: 0 0 22px rgba(139, 92, 246, 0.3);
+  }
+  .qpill .q { opacity: 0.8; }
+  .qpill .accent { font-weight: 700; color: var(--violet-light); }
+
+  .stop-btn {
+    width: 46px;
+    height: 46px;
+    border-radius: 23px;
+    background: #ffffff;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    padding: 0;
+  }
+  .stop-btn .square {
+    width: 16px;
+    height: 16px;
+    background: var(--bg);
+    border-radius: 3px;
+    display: inline-block;
+  }
+</style>
+</head>
+<body>
+  <div class="hero">
+    <div class="prompt-row">
+      <div class="prompt-bubble">How do I make my AI chat faster?</div>
+    </div>
+
+    <div class="reply">
+      If your AI chat feels slow, it's usually not one single problem — it's a mix
+      of browser, network, and how you're using it. The good<span class="reply-cursor"></span>
+    </div>
+
+    <div class="spacer"></div>
+
+    <div class="composer">
+      <div class="icon-btn" aria-hidden="true">
+        <svg width="26" height="26" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M10 3v14M3 10h14"/></svg>
+      </div>
+      <div class="placeholder">Ask anything</div>
+
+      <div class="qpill" aria-label="quickGPT extension active">
+        <svg width="20" height="20" viewBox="0 0 56 56" fill="none" aria-hidden="true">
+          <rect width="56" height="56" rx="12" fill="#6d28d9" />
+          <path d="M14 18 L22 28 L14 38" stroke="#c4b5fd" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/>
+          <path d="M23 18 L31 28 L23 38" stroke="#d6ccff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.85"/>
+          <path d="M32 18 L40 28 L32 38" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span><span class="q">quick</span><span class="accent">GPT</span></span>
+      </div>
+
+      <div class="icon-btn lg" aria-hidden="true">
+        <svg width="26" height="26" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="7.5" y="2.5" width="5" height="10" rx="2.5"/><path d="M4 9.5a6 6 0 0012 0M10 15.5v2.5"/></svg>
+      </div>
+
+      <button class="stop-btn" aria-label="Stop generating"><span class="square"></span></button>
+    </div>
+  </div>
+</body>
+</html>

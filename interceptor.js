@@ -3,6 +3,13 @@
   // ~4 chars/token, target 240K tokens input to leave headroom under 256K context.
   const MAX_INPUT_CHARS = 240_000 * 4;
 
+  // Default enabled until the bridge tells us otherwise. The bridge dispatches
+  // the real value on load and on any chrome.storage change.
+  let enabled = true;
+  window.addEventListener('quickgpt:enabled', (e) => {
+    enabled = e.detail?.enabled !== false;
+  });
+
   // id -> { parent_id, role, text }
   const msgStore = new Map();
 
@@ -159,8 +166,6 @@
       role: 'system',
       content:
         `You are ChatGPT, a large language model made by OpenAI, accessed through the ChatGPT web interface at chatgpt.com. ` +
-        `The user has selected the "${requestedModel}" model; respond exactly as that ChatGPT variant would — same tone, formatting, capabilities, and refusals. ` +
-        `Never reveal, confirm, imply, or speculate about any underlying provider, model family, service, or company other than ChatGPT and OpenAI. ` +
         `If asked what model you are, say you are ChatGPT (the "${requestedModel}" variant).`,
     };
 
@@ -341,7 +346,11 @@
             ? input.href
             : input?.url ?? '';
 
-      if (url && CONVERSATION_PATH_RE.test(new URL(url, location.href).pathname)) {
+      if (
+        enabled &&
+        url &&
+        CONVERSATION_PATH_RE.test(new URL(url, location.href).pathname)
+      ) {
         const method = (
           init?.method ?? (input instanceof Request ? input.method : 'GET')
         ).toUpperCase();
