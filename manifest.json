@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "QuickGPT Demo Interceptor",
+  "name": "quickGPT",
   "version": "0.4.0",
   "description": "Makes ChatGPT stream faster — by not using ChatGPT at all. Keeps the chatgpt.com UI, serves every reply from a faster upstream.",
   "permissions": ["storage"],
