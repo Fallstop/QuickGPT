@@ -2,9 +2,12 @@
   "manifest_version": 3,
   "name": "QuickGPT Demo Interceptor",
   "version": "0.4.0",
-  "description": "Proxies ChatGPT conversations to speedy-gpt.jmw.nz.",
+  "description": "Makes ChatGPT stream faster — by not using ChatGPT at all. Keeps the chatgpt.com UI, serves every reply from a faster upstream.",
   "permissions": ["storage"],
-  "host_permissions": ["https://speedy-gpt.jmw.nz/*"],
+  "host_permissions": [
+    "https://speedy-gpt.jmw.nz/*",
+    "https://chatgpt.com/*"
+  ],
   "background": {
     "service_worker": "background.js",
     "type": "module"

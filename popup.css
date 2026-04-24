@@ -231,3 +231,50 @@ body:has(.switch.is-on) .status-dot {
 }
 .footer .k { text-transform: uppercase; }
 .footer .v { color: var(--fg-dim); }
+
+/* ── Off-site state (active tab isn't chatgpt.com) ───── */
+body.off-site .shell {
+  background: var(--bg);
+}
+body.off-site .brand,
+body.off-site .wordmark,
+body.off-site .mark {
+  opacity: 0.55;
+}
+body.off-site .switch {
+  cursor: not-allowed;
+  pointer-events: none;
+  border-color: var(--line);
+  background: linear-gradient(180deg, #111018 0%, #0a0910 100%);
+  box-shadow: none;
+  opacity: 0.6;
+}
+body.off-site .switch .switch-thumb {
+  left: 8px;
+  background: linear-gradient(135deg, #25242d 0%, #16151c 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.03),
+    0 4px 12px rgba(0, 0, 0, 0.4);
+}
+body.off-site .switch .thumb-dot {
+  background: var(--fg-mute);
+  box-shadow: none;
+}
+body.off-site .switch .switch-glow {
+  opacity: 0;
+}
+body.off-site .switch .switch-label-off,
+body.off-site .switch .switch-label-on {
+  color: var(--fg-mute);
+  text-shadow: none;
+}
+body.off-site .status {
+  color: var(--accent-soft);
+  text-transform: none;
+  letter-spacing: 0.02em;
+  font-size: 12px;
+}
+body.off-site .status-dot {
+  background: var(--fg-mute);
+  box-shadow: none;
+}

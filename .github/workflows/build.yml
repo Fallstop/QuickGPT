@@ -21,6 +21,12 @@ jobs:
       - name: Enable pnpm via corepack
         run: corepack enable
 
+      - name: Set manifest version from tag
+        if: github.ref_type == 'tag'
+        run: |
+          version="${GITHUB_REF_NAME#v}"
+          node -e "const fs=require('fs');const p='manifest.json';const m=JSON.parse(fs.readFileSync(p));m.version=process.argv[1];fs.writeFileSync(p,JSON.stringify(m,null,2)+'\n');" "$version"
+
       - name: Build extension zip
         id: zip
         run: |
