@@ -1,0 +1,10 @@
+{
+  "name": "quickgpt",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Demo Chrome extension intercepting ChatGPT's SSE conversation stream and proxying to speedy-gpt.jmw.nz.",
+  "packageManager": "pnpm@9.0.0",
+  "scripts": {
+    "package": "rm -f quickgpt.zip && zip -r quickgpt.zip manifest.json interceptor.js bridge.js background.js"
+  }
+}

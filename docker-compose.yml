@@ -1,0 +1,17 @@
+services:
+  openrouter-proxy:
+    build:
+      context: .
+      dockerfile: proxy/Dockerfile
+    container_name: quickgpt-openrouter-proxy
+    restart: unless-stopped
+    ports:
+      - "8787:8080"
+    environment:
+      # Optional — if set, the proxy injects this as the upstream Authorization
+      # header and ignores whatever the client sends. Leave empty to passthrough.
+      OPENROUTER_API_KEY: ${OPENROUTER_API_KEY:-}
+      # Optional — if set, the proxy rewrites the `model` field in every JSON
+      # POST body to this value, forcing the upstream to use it regardless of
+      # what the client requested. Leave empty to passthrough.
+      MODEL: ${MODEL:-}

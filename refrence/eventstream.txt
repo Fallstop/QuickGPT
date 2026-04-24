@@ -1,0 +1,40 @@
+event: delta_encoding
+data: "v1"
+
+data: {"type": "input_message", "input_message": {"id": "d370f42d-e09f-403b-b1ab-6ad41e073f72", "author": {"role": "user", "name": null, "metadata": {}}, "create_time": 1777017008.32, "update_time": null, "content": {"content_type": "text", "parts": ["test"]}, "status": "finished_successfully", "end_turn": null, "weight": 1.0, "metadata": {"selected_github_repos": [], "selected_all_github_repos": false, "serialization_metadata": {"custom_symbol_offsets": []}, "request_id": "d29609db-b5fe-4189-898f-06a10cc06e5a", "message_source": null, "turn_exchange_id": "f430a4b3-b5f7-49e7-87d6-f0e647be184d", "turn_trace_id": "b5f242bc-c135-4eac-82ab-37e0918662c1", "useragent": {"client_type": "web", "is_mobile": false, "is_mobile_app": false, "is_desktop_app": false, "is_native_app": false, "is_native_app_apple": false, "is_mobile_app_ios": false, "is_desktop_app_macos": false, "is_aura_app_macos": false, "is_aura_web": false, "is_sora_ios": false, "is_agora_ios": false, "is_agora_android": false, "is_desktop_app_windows": false, "is_electron_app": false, "is_mobile_app_android": false, "is_mobile_web": false, "is_mobile_web_ios": false, "is_mobile_web_android": false, "is_ios": false, "is_android": false, "is_macos": true, "is_windows": false, "is_linux": false, "is_chatgpt_client": false, "is_sora_client": false, "is_agora_client": false, "is_browserbased_app": true, "is_chatgpt_api": false, "is_slack": false, "is_chatkit_web": false, "is_chatkit_synthetic": false, "is_kakao_talk": false, "is_codex_desktop": false, "is_offline_caching": false, "app_version": null, "build_number": null, "user_agent": "mozilla/5.0 (macintosh; intel mac os x 10_15_7) applewebkit/537.36 (khtml, like gecko) chrome/147.0.0.0 safari/537.36", "app_environment": null, "os_version": null, "device_model": null, "user_client_type": "desktop_web"}, "paragen_stream_type": "default", "resolved_model_slug": "gpt-5-3", "parent_id": "48b0c5c6-4751-4008-baa7-91da70b2b0d3"}, "recipient": "all", "channel": null}, "conversation_id": "69eb202b-76fc-83ea-aae3-72af6003d6c5"}
+
+event: delta
+data: {"p": "", "o": "add", "v": {"message": {"id": "20f447fe-d10c-4740-847b-c7fa6fe94deb", "author": {"role": "assistant", "name": null, "metadata": {}}, "create_time": 1777017008.512244, "update_time": null, "content": {"content_type": "text", "parts": [""]}, "status": "in_progress", "end_turn": null, "weight": 1.0, "metadata": {"citations": [], "content_references": [], "resolved_model_slug": "gpt-5-3", "request_id": "d29609db-b5fe-4189-898f-06a10cc06e5a", "message_type": "next", "turn_exchange_id": "f430a4b3-b5f7-49e7-87d6-f0e647be184d", "model_slug": "gpt-5-3", "default_model_slug": "auto", "parent_id": "d370f42d-e09f-403b-b1ab-6ad41e073f72", "model_switcher_deny": []}, "recipient": "all", "channel": "final"}, "conversation_id": "69eb202b-76fc-83ea-aae3-72af6003d6c5", "error": null, "error_code": null}, "c": 0}   
+
+data: {"type": "message_marker", "conversation_id": "69eb202b-76fc-83ea-aae3-72af6003d6c5", "message_id": "20f447fe-d10c-4740-847b-c7fa6fe94deb", "marker": "user_visible_token", "event": "first"}
+
+data: {"type": "message_marker", "conversation_id": "69eb202b-76fc-83ea-aae3-72af6003d6c5", "message_id": "20f447fe-d10c-4740-847b-c7fa6fe94deb", "marker": "final_channel_token", "event": "first"}
+
+event: delta
+data: {"p": "/message/content/parts/0", "o": "append", "v": "Got it\u2014"}   
+
+event: delta
+data: {"v": "looks like"}     
+
+event: delta
+data: {"v": " you\u2019re just testing things"}       
+
+event: delta
+data: {"v": ". Everything\u2019s"}    
+
+event: delta
+data: {"v": " working on my end \ud83d\udc4d  \nWhat"}
+
+event: delta
+data: {"p": "", "o": "patch", "v": [{"p": "/message/content/parts/0", "o": "append", "v": " do you want to try next?"}, {"p": "/message/status", "o": "replace", "v": "finished_successfully"}, {"p": "/message/end_turn", "o": "replace", "v": true}, {"p": "/message/metadata", "o": "append", "v": {"can_save": true, "is_complete": true, "search_result_groups": [], "finish_details": {"type": "stop", "stop_tokens": [200002]}}}]}     
+
+data: {"type": "message_marker", "conversation_id": "69eb202b-76fc-83ea-aae3-72af6003d6c5", "message_id": "20f447fe-d10c-4740-847b-c7fa6fe94deb", "marker": "last_token", "event": "last"}
+
+data: {"type": "server_ste_metadata", "metadata": {"conduit_prewarmed": true, "plan_type": "guest", "plan_type_bucket": "guest", "user_agent": "web_desktop", "service": null, "tool_name": null, "tool_invoked": false, "fast_convo": true, "warmup_state": "warm", "is_first_turn": false, "cluster_region": "australiaeast", "model_slug": "gpt-5-3", "region": null, "is_multimodal": null, "did_auto_switch_to_reasoning": false, "auto_switcher_race_winner": null, "is_autoswitcher_enabled": false, "is_search": null, "did_prompt_contain_image": false, "search_tool_call_count": null, "search_tool_query_types": null, "message_id": "20f447fe-d10c-4740-847b-c7fa6fe94deb", "request_id": "d29609db-b5fe-4189-898f-06a10cc06e5a", "turn_exchange_id": "f430a4b3-b5f7-49e7-87d6-f0e647be184d", "turn_trace_id": "b5f242bc-c135-4eac-82ab-37e0918662c1", "a32e6ebcb": 3, "resume_with_websockets": false, "low_turn_topic_ttl": false, "streaming_async_status": false, "replace_stream_status": true, "temporal_conversation_turn": false, "turn_use_case": "text", "turn_mode": "default"}, "conversation_id": "69eb202b-76fc-83ea-aae3-72af6003d6c5"}
+
+data: {"type": "message_stream_complete", "conversation_id": "69eb202b-76fc-83ea-aae3-72af6003d6c5"}
+
+data: {"type": "conversation_detail_metadata", "banner_info": null, "blocked_features": [], "model_limits": [], "limits_progress": [{"feature_name": "file_upload", "remaining": 3, "reset_after": "2026-04-25T07:50:10.658918+00:00"}, {"feature_name": "paste_text_to_file", "remaining": 3, "reset_after": "2026-04-25T07:50:10.658937+00:00"}], "default_model_slug": "auto", "atlas_mode_enabled": null, "conversation_id": "69eb202b-76fc-83ea-aae3-72af6003d6c5"}
+
+data: [DONE]
+
